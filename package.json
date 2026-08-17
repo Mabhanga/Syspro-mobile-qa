@@ -1,0 +1,19 @@
+{
+  "name": "syspro-careers-bug",
+  "version": "1.0.0",
+  "description": "Playwright repro for a mobile-only 404 on Syspro's burger-menu Careers link",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:mobile": "playwright test --project=mobile-chrome",
+    "test:desktop": "playwright test --project=desktop-chrome",
+    "codegen": "playwright codegen https://www.syspro.com"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.62.1"
+  }
+}
