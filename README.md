@@ -45,4 +45,8 @@ npm run test:desktop  # desktop-chrome only
 npm run test:headed   # watch it run
 ```
 
-> Selectors are written role/text-based rather than against brittle CSS classes, but haven't been run against the live DOM yet — if any locator doesn't resolve, `npm run codegen` is the fastest way to fix it up.
+## Status
+
+All 4 tests pass against the live site (confirmed via `npx playwright codegen`):
+- Selectors for the mobile burger menu target Crocoblock/JetEngine's "Jet Mobile Menu" widget (`#jet-mobile-menu-...`), a separate menu structure from the desktop nav and footer.
+- The desktop nav test dismisses a cookie-consent banner before interacting, and uses a forced click on the "Careers" link since Playwright's mouse-move-to-click can break the "Insights" hover state mid-action.
