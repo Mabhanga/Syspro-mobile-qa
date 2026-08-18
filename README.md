@@ -1,6 +1,6 @@
 # syspro-careers-bug
 
-Playwright reproduction of a mobile-only navigation bug on [syspro.com](https://www.syspro.com/).
+Playwright reproduction of a mobile only navigation bug on [syspro.com](https://www.syspro.com/).
 
 ## Bug
 
@@ -12,7 +12,7 @@ Playwright reproduction of a mobile-only navigation bug on [syspro.com](https://
 
 **Expected:** Lands on the live Syspro careers page (`/careers/`).
 
-**Actual:** Lands on a **"Pinpoint"-branded 404 page** — *"The page you were looking for doesn't exist."*
+**Actual:** Lands on a **"Pinpoint"-branded 404 page** *"The page you were looking for doesn't exist."*
 
 Reproduced on two separate physical devices.
 
@@ -25,7 +25,7 @@ Only the **mobile burger-menu** path is broken.
 
 ## Suspected root cause
 
-Syspro's current careers page is hosted on Hibob (`syspro.careers.hibob.com`, linked from the site's live footer and desktop nav). The 404 page returned by the mobile burger-menu link is branded **Pinpoint**, a different careers/ATS platform — suggesting Syspro migrated ATS providers at some point, updated the footer and desktop nav links, but left a stale link to the old Pinpoint-hosted careers page in the mobile burger menu.
+Syspro's current careers page is hosted on Hibob (`syspro.careers.hibob.com`, linked from the site's live footer and desktop nav). The 404 page returned by the mobile burger menu link is branded **Pinpoint**, a different careers/ATS platform suggesting Syspro migrated ATS providers at some point, updated the footer and desktop nav links, but left a stale link to the old Pinpoint-hosted careers page in the mobile burger menu.
 
 ## Tests
 
@@ -49,4 +49,4 @@ npm run test:headed   # watch it run
 
 All 4 tests pass against the live site (confirmed via `npx playwright codegen`):
 - Selectors for the mobile burger menu target Crocoblock/JetEngine's "Jet Mobile Menu" widget (`#jet-mobile-menu-...`), a separate menu structure from the desktop nav and footer.
-- The desktop nav test dismisses a cookie-consent banner before interacting, and uses a forced click on the "Careers" link since Playwright's mouse-move-to-click can break the "Insights" hover state mid-action.
+- The desktop nav test dismisses a cookie consent banner before interacting, and uses a forced click on the "Careers" link since Playwright's mouse move to click can break the "Insights" hover state mid-action.
